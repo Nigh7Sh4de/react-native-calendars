@@ -55,7 +55,7 @@ class Day extends Component {
   }
 
   getDrawingStyle(marking) {
-    const defaultStyle = {textStyle: {}};
+    const defaultStyle = {textStyle: {}, containerStyle: {}};
     if (!marking) {
       return defaultStyle;
     }
@@ -63,6 +63,7 @@ class Day extends Component {
       defaultStyle.textStyle.color = this.theme.textDisabledColor;
     } else if (marking.selected) {
       defaultStyle.textStyle.color = this.theme.selectedDayTextColor;
+      defaultStyle.containerStyle.backgroundColor = this.theme.selectedDayBackgroundColor;
     }
     const resultStyle = ([marking]).reduce((prev, next) => {
       if (next.quickAction) {
